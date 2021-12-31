@@ -1,5 +1,12 @@
 import React from 'react';
-import {TouchableNativeFeedback, StyleSheet, View, Text} from 'react-native';
+import {
+  TouchableNativeFeedback,
+  StyleSheet,
+  View,
+  Text,
+  Platform,
+  TouchableOpacity,
+} from 'react-native';
 
 interface ButtonFabProps {
   onPress: () => void;
@@ -12,21 +19,44 @@ export const ButtonFab = ({
   text = 'Click',
   location = 'right',
 }: ButtonFabProps) => {
-  return (
-    <View
-      style={[
-        styles.fabLocationB,
-        location === 'left' ? styles.fabLocationLeft : styles.fabLocationRight,
-      ]}>
-      <TouchableNativeFeedback
+  const ios = () => {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.8}
         onPress={onPress}
-        background={TouchableNativeFeedback.Ripple('#28425B', true, 32)}>
+        style={[
+          styles.fabLocationB,
+          location === 'left'
+            ? styles.fabLocationLeft
+            : styles.fabLocationRight,
+        ]}>
         <View style={styles.fab}>
           <Text style={styles.fabText}>{text}</Text>
         </View>
-      </TouchableNativeFeedback>
-    </View>
-  );
+      </TouchableOpacity>
+    );
+  };
+  const android = () => {
+    return (
+      <View
+        style={[
+          styles.fabLocationB,
+          location === 'left'
+            ? styles.fabLocationLeft
+            : styles.fabLocationRight,
+        ]}>
+        <TouchableNativeFeedback
+          onPress={onPress}
+          background={TouchableNativeFeedback.Ripple('#28425B', true, 32)}>
+          <View style={styles.fab}>
+            <Text style={styles.fabText}>{text}</Text>
+          </View>
+        </TouchableNativeFeedback>
+      </View>
+    );
+  };
+
+  return Platform.OS === 'ios' ? ios() : android();
 };
 
 const styles = StyleSheet.create({
