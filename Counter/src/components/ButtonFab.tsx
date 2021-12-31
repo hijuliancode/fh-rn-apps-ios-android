@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet, View, Text} from 'react-native';
+import {TouchableNativeFeedback, StyleSheet, View, Text} from 'react-native';
 
 interface ButtonFabProps {
   onPress: () => void;
@@ -13,16 +13,19 @@ export const ButtonFab = ({
   location = 'right',
 }: ButtonFabProps) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
+    <View
       style={[
         styles.fabLocationB,
         location === 'left' ? styles.fabLocationLeft : styles.fabLocationRight,
       ]}>
-      <View style={styles.fab}>
-        <Text style={styles.fabText}>{text}</Text>
-      </View>
-    </TouchableOpacity>
+      <TouchableNativeFeedback
+        onPress={onPress}
+        background={TouchableNativeFeedback.Ripple('#28425B', true, 32)}>
+        <View style={styles.fab}>
+          <Text style={styles.fabText}>{text}</Text>
+        </View>
+      </TouchableNativeFeedback>
+    </View>
   );
 };
 
@@ -30,6 +33,7 @@ const styles = StyleSheet.create({
   fabLocationB: {
     bottom: 24,
     position: 'absolute',
+    borderRadius: 100,
   },
   fabLocationLeft: {
     left: 24,
