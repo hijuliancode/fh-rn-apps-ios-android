@@ -5,10 +5,17 @@ export const styles = StyleSheet.create({
     backgroundColor: '#060116',
     flex: 1,
   },
-  container: {
+  resultsContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+  },
+  resultSmall: {
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 24,
+  },
+  resultMain: {
+    color: '#fff',
+    fontSize: 32,
   },
 });
