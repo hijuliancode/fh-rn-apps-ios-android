@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const styles = StyleSheet.create({
+export const stylesTheme = StyleSheet.create({
   mainBackground: {
     backgroundColor: '#060116',
     flex: 1,
