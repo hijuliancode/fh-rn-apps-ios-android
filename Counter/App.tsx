@@ -6,7 +6,7 @@ import {BoxModelScreen} from './src/screens';
 
 export const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       {/* <HelloWorldScreen /> */}
       {/* <CounterScreen /> */}
       <BoxModelScreen />
