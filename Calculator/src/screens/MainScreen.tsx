@@ -1,18 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Container, Button} from '../components';
 import {stylesTheme} from '../theme';
 
 export const MainScreen = () => {
+  const [previousNumber, setPreviousNumber] = useState('0');
+  const [number, setNumber] = useState('100');
+
+  const cleanNumber = () => {
+    setNumber('0');
+  };
+
+  const creatingNumber = (value: string) => {
+    if (number === '0') {
+      setNumber(value);
+    } else {
+      setNumber(number + value);
+    }
+  };
+
   return (
     <Container>
       <View style={stylesTheme.resultsContainer}>
-        <Text style={stylesTheme.resultSmall}>1,500.00</Text>
-        <Text style={stylesTheme.resultMain}>1,500.00</Text>
+        <Text style={stylesTheme.resultSmall}>{previousNumber}</Text>
+        <Text
+          style={stylesTheme.resultMain}
+          numberOfLines={1}
+          adjustsFontSizeToFit>
+          {number}
+        </Text>
       </View>
       <View style={styles.buttonsContainer}>
         <View style={styles.row}>
-          <Button onPress={() => console.log('C')} text="C" />
+          <Button onPress={cleanNumber} text="C" />
           <Button onPress={() => console.log('+/-')} text="+/-" />
           <Button onPress={() => console.log('%')} text="%" />
           <Button
@@ -23,17 +43,17 @@ export const MainScreen = () => {
         </View>
         <View style={styles.row}>
           <Button
-            onPress={() => console.log('7')}
+            onPress={() => creatingNumber('7')}
             text="7"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('8')}
+            onPress={() => creatingNumber('8')}
             text="8"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('9')}
+            onPress={() => creatingNumber('9')}
             text="9"
             styleColor="GrayLight"
           />
@@ -45,17 +65,17 @@ export const MainScreen = () => {
         </View>
         <View style={styles.row}>
           <Button
-            onPress={() => console.log('4')}
+            onPress={() => creatingNumber('4')}
             text="4"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('5')}
+            onPress={() => creatingNumber('5')}
             text="5"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('6')}
+            onPress={() => creatingNumber('6')}
             text="6"
             styleColor="GrayLight"
           />
@@ -67,17 +87,17 @@ export const MainScreen = () => {
         </View>
         <View style={styles.row}>
           <Button
-            onPress={() => console.log('1')}
+            onPress={() => creatingNumber('1')}
             text="1"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('2')}
+            onPress={() => creatingNumber('2')}
             text="2"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('3')}
+            onPress={() => creatingNumber('3')}
             text="3"
             styleColor="GrayLight"
           />
@@ -90,12 +110,12 @@ export const MainScreen = () => {
         <View style={styles.row}>
           <Button
             doubleWidth
-            onPress={() => console.log('0')}
+            onPress={() => creatingNumber('0')}
             text="0"
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('.')}
+            onPress={() => creatingNumber('.')}
             text="."
             styleColor="GrayLight"
           />
