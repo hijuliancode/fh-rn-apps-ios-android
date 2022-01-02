@@ -46,6 +46,23 @@ export const MainScreen = () => {
     }
   };
 
+  const deleteLastNumber = () => {
+    let negative = '';
+    let numberTemp = '';
+
+    // Verificar si es número negativo y eliminar el signo
+    if (number.includes('-')) {
+      negative = '-';
+      numberTemp = number.substring(1);
+    }
+
+    if (numberTemp.length > 1) {
+      setNumber(negative + numberTemp.slice(0, -1));
+    } else {
+      setNumber('0');
+    }
+  };
+
   return (
     <Container>
       <View style={stylesTheme.resultsContainer}>
@@ -60,8 +77,8 @@ export const MainScreen = () => {
       <View style={styles.buttonsContainer}>
         <View style={styles.row}>
           <Button onPress={cleanNumber} text="C" />
+          <Button onPress={deleteLastNumber} text="Del" />
           <Button onPress={positiveNegative} text="+/-" />
-          <Button onPress={() => console.log('%')} text="%" />
           <Button
             onPress={() => console.log('/')}
             text="/"
