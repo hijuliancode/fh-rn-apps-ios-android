@@ -85,26 +85,34 @@ export const MainScreen = () => {
   const btnOperation = (operation: Operators) => {
     saveLastNumber();
     lastOperation.current = operation;
-    switch (operation) {
+  };
+
+  const btnEqual = () => {
+    switch (lastOperation.current) {
       case Operators.Divide:
         if (lastOperation.current === Operators.Divide) {
+          setNumber(String(Number(previousNumber) / Number(number)));
         }
         break;
       case Operators.Multiply:
         if (lastOperation.current === Operators.Multiply) {
+          setNumber(String(Number(previousNumber) * Number(number)));
         }
         break;
       case Operators.Subtract:
         if (lastOperation.current === Operators.Subtract) {
+          setNumber(String(Number(previousNumber) - Number(number)));
         }
         break;
       case Operators.Add:
         if (lastOperation.current === Operators.Add) {
+          setNumber(String(Number(previousNumber) + Number(number)));
         }
         break;
       default:
         break;
     }
+    setPreviousNumber('0');
   };
 
   return (
@@ -209,11 +217,7 @@ export const MainScreen = () => {
             text="."
             styleColor="GrayLight"
           />
-          <Button
-            onPress={() => console.log('=')}
-            text="="
-            styleColor="Orange"
-          />
+          <Button onPress={btnEqual} text="=" styleColor="Orange" />
         </View>
       </View>
     </Container>
