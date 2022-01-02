@@ -12,10 +12,37 @@ export const MainScreen = () => {
   };
 
   const creatingNumber = (value: string) => {
-    if (number === '0') {
-      setNumber(value);
+    // No aceptar doble punto
+    if (number.includes('.') && value === '.') {
+      return;
+    }
+
+    if (number.startsWith('0') || number.startsWith('-0')) {
+      // Punto decimal
+      if (value === '.') {
+        setNumber(number + value);
+        // Evaluar si es otro cero o es un numero negativo
+      } else if (value === '0' && number.includes('.')) {
+        setNumber(number + value);
+        // Evaluar si es diferente de cero y no tiene un punto
+      } else if (value !== '0' && !number.includes('.')) {
+        setNumber(value);
+        // Evitar 0000.00
+      } else if (value === '0' && !number.includes('.')) {
+        setNumber(number);
+      } else {
+        setNumber(number + value);
+      }
     } else {
       setNumber(number + value);
+    }
+  };
+
+  const positiveNegative = () => {
+    if (number.charAt(0) === '-') {
+      setNumber(number.substring(1));
+    } else {
+      setNumber('-' + number);
     }
   };
 
@@ -33,7 +60,7 @@ export const MainScreen = () => {
       <View style={styles.buttonsContainer}>
         <View style={styles.row}>
           <Button onPress={cleanNumber} text="C" />
-          <Button onPress={() => console.log('+/-')} text="+/-" />
+          <Button onPress={positiveNegative} text="+/-" />
           <Button onPress={() => console.log('%')} text="%" />
           <Button
             onPress={() => console.log('/')}
