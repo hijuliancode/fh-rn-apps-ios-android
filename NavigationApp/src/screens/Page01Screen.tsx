@@ -17,6 +17,14 @@ export const Page01Screen = ({navigation}: Props) => {
           onPress={() => navigation.navigate('Page02Screen')}
         />
       </View>
+      <View style={stylesTheme.marginBottom}>
+        <Button
+          title="Go to Persona Page"
+          onPress={() =>
+            navigation.navigate('PagePersonaScreen', {id: 1, name: 'Meraki'})
+          }
+        />
+      </View>
     </View>
   );
 };

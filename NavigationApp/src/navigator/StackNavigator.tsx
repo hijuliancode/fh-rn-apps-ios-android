@@ -1,7 +1,12 @@
 import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
-import {Page01Screen, Page02Screen, Page03Screen} from '../screens';
+import {
+  Page01Screen,
+  Page02Screen,
+  Page03Screen,
+  PagePersonaScreen,
+} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +44,13 @@ export const StackNavigator = () => {
           title: 'Page 03 ',
         }}
         component={Page03Screen}
+      />
+      <Stack.Screen
+        name="PagePersonaScreen"
+        options={{
+          title: 'Page Persona ',
+        }}
+        component={PagePersonaScreen}
       />
     </Stack.Navigator>
   );
