@@ -1,9 +1,11 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
+import {RootStackParamList} from '../navigator/StackNavigator';
 import {stylesTheme} from '../theme';
 
-interface Props extends StackScreenProps<any, any> {}
+interface Props
+  extends StackScreenProps<RootStackParamList, 'PagePersonaScreen'> {}
 
 export const PagePersonaScreen = ({route, navigation}: Props) => {
   const params = route.params;

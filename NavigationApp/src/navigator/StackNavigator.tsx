@@ -8,7 +8,14 @@ import {
   PagePersonaScreen,
 } from '../screens';
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  Page01Screen: undefined;
+  Page02Screen: undefined;
+  Page03Screen: undefined;
+  PagePersonaScreen: {id: number; name: string};
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export const StackNavigator = () => {
   return (
