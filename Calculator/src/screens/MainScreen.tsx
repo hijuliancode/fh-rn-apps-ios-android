@@ -63,6 +63,15 @@ export const MainScreen = () => {
     }
   };
 
+  const saveLastNumber = () => {
+    if (number.endsWith('.')) {
+      setPreviousNumber(number.slice(0, -1));
+    } else {
+      setPreviousNumber(number);
+    }
+    setNumber('0');
+  };
+
   return (
     <Container>
       <View style={stylesTheme.resultsContainer}>
@@ -79,11 +88,7 @@ export const MainScreen = () => {
           <Button onPress={cleanNumber} text="C" />
           <Button onPress={deleteLastNumber} text="Del" />
           <Button onPress={positiveNegative} text="+/-" />
-          <Button
-            onPress={() => console.log('/')}
-            text="/"
-            styleColor="Orange"
-          />
+          <Button onPress={saveLastNumber} text="/" styleColor="Orange" />
         </View>
         <View style={styles.row}>
           <Button
