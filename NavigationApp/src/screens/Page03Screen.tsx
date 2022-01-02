@@ -10,7 +10,7 @@ export const Page03Screen = ({navigation}: Props) => {
   return (
     <View style={stylesTheme.globalWrapper}>
       <View style={stylesTheme.marginBottom}>
-        <Text>Page03Screen works!</Text>
+        <Text style={stylesTheme.title}>Page03Screen works!</Text>
       </View>
       <View style={stylesTheme.marginBottom}>
         <Button title="Back" onPress={() => navigation.pop()} />

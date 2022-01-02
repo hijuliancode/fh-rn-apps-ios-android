@@ -11,4 +11,8 @@ export const stylesTheme = StyleSheet.create({
   marginBottom: {
     marginBottom: 12,
   },
+  title: {
+    fontSize: 24,
+    marginVertical: 12,
+  },
 });

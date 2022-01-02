@@ -9,7 +9,7 @@ export const Page01Screen = ({navigation}: Props) => {
   return (
     <View style={stylesTheme.globalWrapper}>
       <View style={stylesTheme.marginBottom}>
-        <Text>Page01Screen works!</Text>
+        <Text style={stylesTheme.title}>Page01Screen works!</Text>
       </View>
       <View style={stylesTheme.marginBottom}>
         <Button
