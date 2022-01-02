@@ -35,7 +35,7 @@ export const Page01Screen = ({navigation}: Props) => {
       </View>
       <View style={stylesTheme.marginBottom}>
         <Button
-          title="Go to Gumball Page"
+          title="Go to Gumball Page!"
           onPress={() =>
             navigation.navigate('PagePersonaScreen', {id: 3, name: 'Gumball'})
           }

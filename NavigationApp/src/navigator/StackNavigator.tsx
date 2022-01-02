@@ -55,7 +55,7 @@ export const StackNavigator = () => {
       <Stack.Screen
         name="PagePersonaScreen"
         options={{
-          title: 'Page Persona ',
+          title: 'Page Persona',
         }}
         component={PagePersonaScreen}
       />
