@@ -1,14 +1,24 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Container, Button} from '../components';
 import {stylesTheme} from '../theme';
+
+enum Operators {
+  Add,
+  Subtract,
+  Multiply,
+  Divide,
+}
 
 export const MainScreen = () => {
   const [previousNumber, setPreviousNumber] = useState('0');
   const [number, setNumber] = useState('100');
 
+  const lastOperation = useRef<Operators>();
+
   const cleanNumber = () => {
     setNumber('0');
+    setPreviousNumber('0');
   };
 
   const creatingNumber = (value: string) => {
@@ -48,7 +58,7 @@ export const MainScreen = () => {
 
   const deleteLastNumber = () => {
     let negative = '';
-    let numberTemp = '';
+    let numberTemp = number;
 
     // Verificar si es número negativo y eliminar el signo
     if (number.includes('-')) {
@@ -72,10 +82,37 @@ export const MainScreen = () => {
     setNumber('0');
   };
 
+  const btnOperation = (operation: Operators) => {
+    saveLastNumber();
+    lastOperation.current = operation;
+    switch (operation) {
+      case Operators.Divide:
+        if (lastOperation.current === Operators.Divide) {
+        }
+        break;
+      case Operators.Multiply:
+        if (lastOperation.current === Operators.Multiply) {
+        }
+        break;
+      case Operators.Subtract:
+        if (lastOperation.current === Operators.Subtract) {
+        }
+        break;
+      case Operators.Add:
+        if (lastOperation.current === Operators.Add) {
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <Container>
       <View style={stylesTheme.resultsContainer}>
-        <Text style={stylesTheme.resultSmall}>{previousNumber}</Text>
+        {previousNumber !== '0' && (
+          <Text style={stylesTheme.resultSmall}>{previousNumber}</Text>
+        )}
         <Text
           style={stylesTheme.resultMain}
           numberOfLines={1}
@@ -88,7 +125,11 @@ export const MainScreen = () => {
           <Button onPress={cleanNumber} text="C" />
           <Button onPress={deleteLastNumber} text="Del" />
           <Button onPress={positiveNegative} text="+/-" />
-          <Button onPress={saveLastNumber} text="/" styleColor="Orange" />
+          <Button
+            onPress={() => btnOperation(Operators.Divide)}
+            text="/"
+            styleColor="Orange"
+          />
         </View>
         <View style={styles.row}>
           <Button
@@ -107,7 +148,7 @@ export const MainScreen = () => {
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('*')}
+            onPress={() => btnOperation(Operators.Multiply)}
             text="*"
             styleColor="Orange"
           />
@@ -129,7 +170,7 @@ export const MainScreen = () => {
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('-')}
+            onPress={() => btnOperation(Operators.Subtract)}
             text="-"
             styleColor="Orange"
           />
@@ -151,7 +192,7 @@ export const MainScreen = () => {
             styleColor="GrayLight"
           />
           <Button
-            onPress={() => console.log('+')}
+            onPress={() => btnOperation(Operators.Add)}
             text="+"
             styleColor="Orange"
           />
