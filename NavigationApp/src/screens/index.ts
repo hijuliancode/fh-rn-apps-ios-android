@@ -6,3 +6,6 @@ export * from './SettingsScreen';
 export * from './Tab01Screen';
 export * from './Tab02Screen';
 export * from './Tab03Screen';
+export * from './ChatScreen';
+export * from './ContactsScreen';
+export * from './AlbumsScreen';
