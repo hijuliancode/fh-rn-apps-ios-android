@@ -15,4 +15,14 @@ export const stylesTheme = StyleSheet.create({
     fontSize: 24,
     marginVertical: 12,
   },
+  avatarContainer: {
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    marginBottom: 12,
+  },
 });
