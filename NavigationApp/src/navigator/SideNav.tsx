@@ -9,6 +9,7 @@ import {SettingsScreen} from '../screens';
 import {Image, Text, Touchable, useWindowDimensions, View} from 'react-native';
 import {stylesTheme} from '../theme';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Tabs} from './Tabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,6 +23,7 @@ export const SideNav = () => {
         drawerType: width > 600 ? 'permanent' : 'front',
       }}
       drawerContent={props => <DrawerContentView {...props} />}>
+      <Drawer.Screen options={{title: 'Tabs'}} name="Tabs" component={Tabs} />
       <Drawer.Screen
         options={{title: 'Home'}}
         name="StackNavigator"
@@ -51,6 +53,11 @@ const DrawerContentView = ({navigation}: DrawerContentComponentProps) => {
       </View>
       {/* Options Section */}
       <View style={stylesTheme.menuContainer}>
+        <View style={stylesTheme.marginBottom}>
+          <TouchableOpacity onPress={() => navigation.navigate('Tabs')}>
+            <Text style={stylesTheme.menuItem}>Tabs</Text>
+          </TouchableOpacity>
+        </View>
         <View style={stylesTheme.marginBottom}>
           <TouchableOpacity
             onPress={() => navigation.navigate('StackNavigator')}>
