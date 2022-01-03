@@ -6,10 +6,11 @@ import {
 } from '@react-navigation/drawer';
 import {StackNavigator} from './StackNavigator';
 import {SettingsScreen} from '../screens';
-import {Image, Text, Touchable, useWindowDimensions, View} from 'react-native';
+import {Image, Text, useWindowDimensions, View} from 'react-native';
 import {stylesTheme} from '../theme';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Tabs} from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
@@ -55,18 +56,27 @@ const DrawerContentView = ({navigation}: DrawerContentComponentProps) => {
       <View style={stylesTheme.menuContainer}>
         <View style={stylesTheme.marginBottom}>
           <TouchableOpacity onPress={() => navigation.navigate('Tabs')}>
-            <Text style={stylesTheme.menuItem}>Tabs</Text>
+            <Text style={stylesTheme.menuItem}>
+              <Icon name="snow-outline" size={12} color="#900" />
+              Tabs
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={stylesTheme.marginBottom}>
           <TouchableOpacity
             onPress={() => navigation.navigate('StackNavigator')}>
-            <Text style={stylesTheme.menuItem}>Stack Navigation</Text>
+            <Text style={stylesTheme.menuItem}>
+              <Icon name="snow-outline" size={12} color="#900" />
+              Stack Navigation
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={stylesTheme.marginBottom}>
           <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
-            <Text style={stylesTheme.menuItem}>Settings</Text>
+            <Text style={stylesTheme.menuItem}>
+              <Icon name="snow-outline" size={12} color="#900" />
+              Settings
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

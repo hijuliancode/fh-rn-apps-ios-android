@@ -4,6 +4,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import Tab01Screen from '../screens/Tab01Screen';
 import {StackNavigator, TopTabNavigator} from './index';
 import {Platform, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 // import Tab03Screen from '../screens/Tab03Screen';
 
 export const Tabs = () => {
@@ -25,25 +26,25 @@ function TabsAndroid() {
           fontSize: 16,
         },
         tabBarIcon: ({focused, color, size}) => {
-          let iconName: string = 'T';
+          let iconName = 'snow-outline';
 
           switch (route.name) {
             case 'Tab01Screen':
-              iconName = 'T1 !';
+              iconName = 'beer-outline';
               break;
 
             case 'TopTabNavigator':
-              iconName = 'TTN';
+              iconName = 'snow-outline';
               break;
 
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'color-palette-outline';
               break;
             default:
               break;
           }
 
-          return <Text style={{color}}>{iconName}</Text>;
+          return <Icon name={iconName} size={16} color={color} />;
         },
       })}>
       <BottomTabAndroid.Screen
@@ -86,25 +87,25 @@ export const TabsIOS = () => {
           fontSize: 16,
         },
         tabBarIcon: ({focused, color, size}) => {
-          let iconName: string = 'T';
+          let iconName = 'snow-outline';
 
           switch (route.name) {
             case 'Tab01Screen':
-              iconName = 'T1 !';
+              iconName = 'beer-outline';
               break;
 
             case 'TopTabNavigator':
-              iconName = 'TTN';
+              iconName = 'snow-outline';
               break;
 
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'color-palette-outline';
               break;
             default:
               break;
           }
 
-          return <Text style={{color}}>{iconName}</Text>;
+          return <Icon name={iconName} size={16} color={color} />;
         },
       })}>
       <BottomTabIOS.Screen

@@ -2,6 +2,8 @@
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import React, {useEffect} from 'react';
 import {View, Text, Button} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {stylesTheme} from '../theme';
 
 // interface Props extends StackScreenProps<any, any> {}
@@ -12,7 +14,12 @@ export const Page01Screen = ({navigation}: Props) => {
     navigation.setOptions({
       headerTitle: 'Home',
       headerLeft: () => (
-        <Button title="Menu" onPress={() => navigation.toggleDrawer()} />
+        <TouchableOpacity
+          onPress={() => navigation.toggleDrawer()}
+          style={{flexDirection: 'row'}}>
+          <Icon name="snow-outline" size={12} color="#900" />
+          <Text>Menu</Text>
+        </TouchableOpacity>
       ),
       headerRight: () => <Text>Julian S.</Text>,
     });
