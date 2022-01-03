@@ -1,9 +1,11 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const SettingsScreen = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <View>
+    <View style={{marginTop: insets.top}}>
       <Text>Settings Screen</Text>
     </View>
   );
