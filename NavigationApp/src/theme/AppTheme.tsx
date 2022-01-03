@@ -25,4 +25,12 @@ export const stylesTheme = StyleSheet.create({
     borderRadius: 100,
     marginBottom: 12,
   },
+  menuContainer: {
+    flex: 1,
+    paddingVertical: 24,
+    paddingHorizontal: 24,
+  },
+  menuItem: {
+    fontSize: 18,
+  },
 });

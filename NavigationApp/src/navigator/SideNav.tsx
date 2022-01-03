@@ -6,8 +6,9 @@ import {
 } from '@react-navigation/drawer';
 import {StackNavigator} from './StackNavigator';
 import {SettingsScreen} from '../screens';
-import {Image, Text, useWindowDimensions, View} from 'react-native';
+import {Image, Text, Touchable, useWindowDimensions, View} from 'react-native';
 import {stylesTheme} from '../theme';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Drawer = createDrawerNavigator();
 
@@ -35,17 +36,32 @@ export const SideNav = () => {
   );
 };
 
-const DrawerContentView = (props: DrawerContentComponentProps) => {
+const DrawerContentView = ({navigation}: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView>
+      {/* Avatar Section */}
       <View style={stylesTheme.avatarContainer}>
         <Image
           source={{
-            uri: 'https://toppng.com/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png',
+            uri: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
           }}
           style={stylesTheme.avatar}
         />
         <Text>Drawer Content</Text>
+      </View>
+      {/* Options Section */}
+      <View style={stylesTheme.menuContainer}>
+        <View style={stylesTheme.marginBottom}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('StackNavigator')}>
+            <Text style={stylesTheme.menuItem}>Stack Navigation</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={stylesTheme.marginBottom}>
+          <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+            <Text style={stylesTheme.menuItem}>Settings</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </DrawerContentScrollView>
   );
