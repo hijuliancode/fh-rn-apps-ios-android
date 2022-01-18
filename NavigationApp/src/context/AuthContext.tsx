@@ -1,4 +1,5 @@
-import React, {createContext} from 'react';
+import React, {createContext, useReducer} from 'react';
+import {authReducer} from './authReduer';
 
 // Definir que información tendrémos en el contexto
 export interface AuthState {
@@ -26,16 +27,16 @@ export const AuthContext = createContext({} as AuthContextProps);
 
 // Exponer el proveedor de información
 export const AuthProvider: React.FC = ({children}: any) => {
-  const [authState, setAuthState] = React.useState(authInitialState);
+  const [authState, dispatch] = useReducer(authReducer, authInitialState);
 
   const signIn = () => {
-    setAuthState({
+    dispatch({
       isLoggedIn: true,
     });
   };
 
   const signOut = () => {
-    setAuthState(authInitialState);
+    dispatch(authInitialState);
   };
 
   return (
