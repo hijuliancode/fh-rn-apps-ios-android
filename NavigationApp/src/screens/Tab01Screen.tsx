@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {View, Text} from 'react-native';
+import {TouchableIcon} from '../components';
 import {stylesTheme} from '../theme';
 
 export default function Tab01Screen() {
@@ -11,16 +11,16 @@ export default function Tab01Screen() {
     <View style={stylesTheme.globalWrapper}>
       <Text style={stylesTheme.title}>Tab01Screen</Text>
       <Text>
-        <Icon name="airplane-outline" size={32} color="#900" />
-        <Icon name="american-football-outline" size={32} color="#900" />
-        <Icon name="baseball-outline" size={32} color="#900" />
-        <Icon name="beer-outline" size={32} color="#900" />
-        <Icon name="bonfire-outline" size={32} color="#900" />
-        <Icon name="color-palette-outline" size={32} color="#900" />
-        <Icon name="snow-outline" size={32} color="#900" />
-        <Icon name="fast-food-outline" size={32} color="#900" />
-        <Icon name="finger-print-outline" size={32} color="#900" />
-        <Icon name="shirt-outline" size={32} color="#900" />
+        <TouchableIcon iconName="airplane-outline" />
+        <TouchableIcon iconName="american-football-outline" />
+        <TouchableIcon iconName="baseball-outline" />
+        <TouchableIcon iconName="beer-outline" />
+        <TouchableIcon iconName="bonfire-outline" />
+        <TouchableIcon iconName="color-palette-outline" />
+        <TouchableIcon iconName="snow-outline" />
+        <TouchableIcon iconName="fast-food-outline" />
+        <TouchableIcon iconName="finger-print-outline" />
+        <TouchableIcon iconName="shirt-outline" />
       </Text>
     </View>
   );
