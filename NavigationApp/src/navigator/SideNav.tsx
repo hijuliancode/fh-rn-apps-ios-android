@@ -5,7 +5,7 @@ import {
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
 import {StackNavigator} from './StackNavigator';
-import {SettingsScreen} from '../screens';
+import {ContactsScreen, SettingsScreen} from '../screens';
 import {Image, Text, useWindowDimensions, View} from 'react-native';
 import {stylesTheme} from '../theme';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -34,6 +34,11 @@ export const SideNav = () => {
         options={{title: 'Settings'}}
         name="Settings"
         component={SettingsScreen}
+      />
+      <Drawer.Screen
+        options={{title: 'Contacts'}}
+        name="Contacts"
+        component={ContactsScreen}
       />
     </Drawer.Navigator>
   );
@@ -76,6 +81,14 @@ const DrawerContentView = ({navigation}: DrawerContentComponentProps) => {
             <Text style={stylesTheme.menuItem}>
               <Icon name="snow-outline" size={12} color="#900" />
               Settings
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={stylesTheme.marginBottom}>
+          <TouchableOpacity onPress={() => navigation.navigate('Contacts')}>
+            <Text style={stylesTheme.menuItem}>
+              <Icon name="snow-outline" size={12} color="#900" />
+              Contacts
             </Text>
           </TouchableOpacity>
         </View>

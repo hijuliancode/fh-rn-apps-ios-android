@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react';
-import {authReducer} from './authReduer';
+import {authReducer} from './authReducer';
 
 // Definir que información tendrémos en el contexto
 export interface AuthState {

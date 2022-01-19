@@ -6,12 +6,12 @@ import {AuthContext} from '../context/AuthContext';
 export const SettingsScreen = () => {
   const insets = useSafeAreaInsets();
 
-  const context = useContext(AuthContext);
+  const {authState} = useContext(AuthContext);
 
   return (
     <View style={{marginTop: insets.top}}>
       <Text>Settings Screen</Text>
-      <Text>{JSON.stringify(context.authState, null, 4)}</Text>
+      <Text>{JSON.stringify(authState, null, 4)}</Text>
     </View>
   );
 };
