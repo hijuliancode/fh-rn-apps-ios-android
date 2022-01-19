@@ -31,12 +31,12 @@ export const AuthProvider: React.FC = ({children}: any) => {
 
   const signIn = () => {
     dispatch({
-      isLoggedIn: true,
+      type: 'SIGN_IN',
     });
   };
 
   const signOut = () => {
-    dispatch(authInitialState);
+    dispatch({type: 'SIGN_OUT'});
   };
 
   return (

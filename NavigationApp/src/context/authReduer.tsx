@@ -1,5 +1,9 @@
 import {AuthState} from '.';
 
+export type AuthActionTypes = {
+  type: 'SIGN_IN' | 'SIGN_OUT';
+};
+
 export const authReducer = (
   state: AuthState,
   action: AuthActionTypes,
@@ -9,6 +13,7 @@ export const authReducer = (
       return {
         ...state,
         isLoggedIn: true,
+        username: 'no-username-yet',
       };
     case 'SIGN_OUT':
       return {
