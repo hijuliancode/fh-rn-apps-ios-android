@@ -1,17 +1,11 @@
 import {useNavigation} from '@react-navigation/core';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
-import movieDB from '../api/movieDB';
-import {MovieDBNowPlaying} from '../interfaces';
+import {useMovies} from '../hooks/useMovies';
 
 export const HomeScreen = () => {
   const navigation = useNavigation();
-
-  useEffect(() => {
-    movieDB.get<MovieDBNowPlaying>('/now_playing').then(res => {
-      console.log(res.data.results[0].title);
-    });
-  }, []);
+  const {movies, isLoading} = useMovies();
 
   return (
     <View style={styles.wrapper}>
@@ -20,6 +14,7 @@ export const HomeScreen = () => {
         title="Go to Details Screen"
         onPress={() => navigation.navigate('DetailsScreen' as any)}
       />
+      {isLoading ? <Text>Loading...</Text> : <Text>{movies.length}</Text>}
     </View>
   );
 };
