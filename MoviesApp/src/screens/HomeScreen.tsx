@@ -2,13 +2,14 @@ import {useNavigation} from '@react-navigation/core';
 import React, {useEffect} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import movieDB from '../api/movieDB';
+import {MovieDBNowPlaying} from '../interfaces';
 
 export const HomeScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    movieDB.get('/now_playing').then(res => {
-      console.log(res.data.results);
+    movieDB.get<MovieDBNowPlaying>('/now_playing').then(res => {
+      console.log(res.data.results[0].title);
     });
   }, []);
 
